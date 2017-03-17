@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lab3</string>
+    <string name="about_text"><div align="justify">Приложение разработано\n отделом Автоматизации МБУ ЦСДБ\n</div></string>
+    <string name="about_title">О программе</string>
+    <string name="provider_gps">GPS</string>
+    <string name="provider_network">Network</string>
+    <string name="location_settings">Location settings</string>
+
+
+</resources>

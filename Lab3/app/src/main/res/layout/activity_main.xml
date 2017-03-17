@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Activity Two"
+        android:onClick="onClickToActivity2"
+        android:id="@+id/btnActTwo">
+    </Button>
+
+    <TextView
+        android:id="@+id/coord1"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/coord2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+</LinearLayout>
