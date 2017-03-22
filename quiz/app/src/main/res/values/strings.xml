@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">%1$d</string>
+    <string name="title_section1">Лента</string>
+    <string name="title_section2">Фото</string>
+    <string name="title_section3">Карта</string>
+    <string name="message">Ответ</string>
+    <string name="question1">Назовите 7 чудо света, памятник исламской и индийской культуры в Индии</string>
+
+</resources>
