@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
     Context context;
+    //public CharSequence[] CurrentAnswers;
+    private static int pageNumber;
 
 
     /**
@@ -69,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CharSequence [] answer = {"1","2"};
-                SelectDialog(answer);
+
+                Toast.makeText(context, "3", Toast.LENGTH_SHORT).show();
+                //SelectDialog(CurrentAnswers);
                 /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
             }
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void SelectDialog(CharSequence[] Answer) {
+    public  void SelectDialog(CharSequence[] Answer) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         //заголовок всплывающего окна
         builder.setTitle(R.string.message);
@@ -124,37 +127,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /*public PlaceholderFragment() {
-        }*/
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
-        }
-    }
 
 
     public static class FirstActivity extends Fragment {
@@ -163,6 +136,13 @@ public class MainActivity extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+        private static final CharSequence [] CurrentAnswers = {
+                "Лопос-темпл",
+                "Кутуб-Минар",
+                "Тадж-Махал",
+                "Храм Кайласа"};
+
+        public static CharSequence [] getCurrentAnswers(){return CurrentAnswers;}
 
 
 
@@ -170,8 +150,8 @@ public class MainActivity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static FirstActivity newInstance(int sectionNumber) {
+            FirstActivity fragment = new FirstActivity();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -179,11 +159,18 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            pageNumber = getArguments() != null ? getArguments().getInt("section_number") : 1;
+        }
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.first_tab, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label1);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
             return rootView;
         }
     }
@@ -196,13 +183,22 @@ public class MainActivity extends AppCompatActivity {
         private static final String ARG_SECTION_NUMBER = "section_number";
 
 
+        private static final CharSequence [] CurrentAnswers = {
+                "Агра",
+                "Джайпур",
+                "Нью-Дели",
+                "Калькутта"};
+
+        public static CharSequence [] getCurrentAnswers(){return CurrentAnswers;}
+
+
 
         /**
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static SecondActivity newInstance(int sectionNumber) {
+            SecondActivity fragment = new SecondActivity();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -215,6 +211,8 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.second_tab, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label2);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
             return rootView;
         }
     }
@@ -226,14 +224,22 @@ public class MainActivity extends AppCompatActivity {
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
+        private static final CharSequence [] CurrentAnswers = {
+                "18 лет",
+                "25 лет",
+                "21 год",
+                "16 лет"};
+
+        public static CharSequence [] getCurrentAnswers(){return CurrentAnswers;}
+
 
 
         /**
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
+        public static ThirdActivity newInstance(int sectionNumber) {
+            ThirdActivity fragment = new ThirdActivity();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
@@ -246,6 +252,8 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.third_tab, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label3);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
             return rootView;
         }
     }
@@ -273,18 +281,26 @@ public class MainActivity extends AppCompatActivity {
                     args = new Bundle();
                     args.putInt(FirstActivity.ARG_SECTION_NUMBER, position + 1);
                     fragment.setArguments(args);
+                    Toast.makeText(context, String.valueOf(position), Toast.LENGTH_SHORT).show();
+
+
                     break;
                 case 1:
                     fragment = new SecondActivity();
                     args = new Bundle();
                     args.putInt(SecondActivity.ARG_SECTION_NUMBER, position + 1);
                     fragment.setArguments(args);
+                    //Toast.makeText(context, position, Toast.LENGTH_SHORT).show();
+
+
                     break;
                 case 2:
                     fragment = new ThirdActivity();
                     args = new Bundle();
                     args.putInt(ThirdActivity.ARG_SECTION_NUMBER, position + 1);
                     fragment.setArguments(args);
+                    //Toast.makeText(context, position, Toast.LENGTH_SHORT).show();
+
                     break;
             }
             return fragment;
