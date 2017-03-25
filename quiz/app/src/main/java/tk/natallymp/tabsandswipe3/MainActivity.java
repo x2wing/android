@@ -159,9 +159,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onStart(){
+            super.onStart();
+            pageNumber = getArguments().getInt(ARG_SECTION_NUMBER);
+
+        }
+
+
+        @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            pageNumber = getArguments() != null ? getArguments().getInt("section_number") : 1;
+
         }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -206,6 +214,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        public void onStart(){
+            super.onStart();
+            pageNumber = getArguments().getInt(ARG_SECTION_NUMBER);
+
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.second_tab, container, false);
@@ -246,6 +261,13 @@ public class MainActivity extends AppCompatActivity {
             return fragment;
         }
 
+
+        @Override
+        public void onStart(){
+            super.onStart();
+            pageNumber = getArguments().getInt(ARG_SECTION_NUMBER);
+
+        }
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
