@@ -1,0 +1,5 @@
+1) Самый легкий хакерский способ вытащить жесты из эмулятора:
+C:\Users\magistr\.android\avd\myphone_API_25.avd\userdata-qemu\media\0\gestures
+
+где myphone_API_25.avd - виртуалка телефона
+userdata-qemu - распакованный любым архиватором образ userdata.img из той же папки C:\Users\magistr\.android\avd\myphone_API_25.avd
