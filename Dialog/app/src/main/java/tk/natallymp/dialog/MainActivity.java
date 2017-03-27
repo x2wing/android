@@ -51,18 +51,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(DialogInterface dialog, int item) {
                         switch (item) {
                             case 0: {
-                                relativeLayout.setBackgroundResource(R.color.redColor);
+                                
                                 Toast.makeText(context, R.string.red, Toast.LENGTH_LONG).show();
                                 break;
                             }
                             case 1: {
-                                relativeLayout.setBackgroundResource(R.color.yellowColor);
+                                
                                 Toast.makeText(context, R.string.yellow, Toast.LENGTH_LONG).show();
                                 break;
                             }
                             case 2: {
-                                relativeLayout.setBackgroundResource(R.color.greenColor);
-                                Toast.makeText(context, R.string.green, Toast.LENGTH_LONG).show();
+                                
+                                Toast.makeText(context, "3", Toast.LENGTH_LONG).show();
                                 break;
                             }
                         }
