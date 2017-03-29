@@ -3,3 +3,13 @@ C:\Users\magistr\.android\avd\myphone_API_25.avd\userdata-qemu\media\0\gestures
 
 где myphone_API_25.avd - виртуалка телефона
 userdata-qemu - распакованный любым архиватором образ userdata.img из той же папки C:\Users\magistr\.android\avd\myphone_API_25.avd
+
+
+2)Чтобы просто не показывалась клавиатура в edittextнужно сделать
+editText.setInputType(InputType.TYPE_NULL);
+Если при этом нужно блокировать ввод (клавиатуру можно и принудительно вызвать), нужно в вашем классе добавить метод:
+public boolean getDefaultEditable() {
+    return false;
+}
+или в xml к описанию EditText элемента добавить
+android:editable="false"
