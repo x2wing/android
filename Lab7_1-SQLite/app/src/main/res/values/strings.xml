@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab7_1-SQLite</string>
+    <string name="input">Ввод данных</string>
+    <string name="щгезге">Вывод данных</string>
+    <string name="output">Вывод данных</string>
+    <string name="delete">Delete</string>
+</resources>
